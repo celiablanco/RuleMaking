@@ -11,13 +11,7 @@
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{calc}
 \usepackage{xcolor}
-\newif\iftracked
-\trackedtrue          % \trackedtrue = red markup; \trackedfalse = clean black
-\iftracked
-  \newcommand{\rev}[1]{\textcolor{red}{#1}}
-\else
-  \newcommand{\rev}[1]{#1}
-\fi
+\newcommand{\rev}[1]{\textcolor{red}{#1}}
 \usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
 \usepackage{doi}
 \usepackage{authblk}
