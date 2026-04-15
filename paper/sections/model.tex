@@ -1,19 +1,19 @@
 \section{Model}
 
-We consider a well-mixed population composed of two types of chemical replicators: rule‑takers ($R$), which reproduce under external physicochemical conditions they do not modify, and rule‑makers ($M$), which incur a cost to alter those conditions (Fig.~\ref{fig:concept-cartoon}). Let $y$ denote the frequency of rule‑makers and $1-y$ the frequency of rule‑takers (implicitly assuming that the total population is regulated on a faster timescale than changes in composition, as in chemostat-like or dilution-balanced settings). 
+We consider a well-mixed population composed of two types of chemical replicators: rule‑takers ($R$), which reproduce under external physicochemical conditions they do not modify, and rule‑makers ($M$), which incur a cost to alter those conditions (Fig.~\ref{fig:concept-cartoon}). Let $y$ denote the frequency \rev{(proportion)} of rule‑makers \rev{in the population} and $1-y$ the frequency of rule‑takers, implicitly assuming that the total population is regulated on a faster timescale than changes in composition, as in chemostat-like or dilution-balanced settings. \rev{Such open-system conditions are natural idealisations of prebiotic environments with continuous material throughput (e.g.\ hydrothermal vents, flow-through porous media, tidal pools with periodic replenishment).} 
 
 The local environment is represented by a scalar variable $E$, which acts as a coarse‑grained descriptor of catalytic, buffering, or stabilizing factors that influence replication rates. The variable $E$ is shared by both types, with rule‑makers increasing it while paying a cost, and rule‑takers benefiting from it without contributing to its production. Rule‑makers are thus the source of environmental change, and the resulting environmental state feeds back on replication. 
 
-Each chemical species replicates at a per‑capita rate, denoted by a fitness $\pi$, which determines its rate of increase. Rule‑maker fitness includes three components—a baseline performance $s$ relative to rule‑takers, a cost $c>0$ for modifying the environment, and a feedback benefit $pE$ that increases with environmental quality. Thus,
+Each chemical species replicates at a per‑capita rate, denoted by a fitness $\pi$, which determines its rate of increase. Rule‑maker fitness includes three components—a baseline performance $s$ relative to rule‑takers, a cost $c>0$ for modifying the environment, and a feedback benefit $pE$ that increases with environmental quality\rev{, where $p > 0$ is a sensitivity parameter quantifying how strongly environmental quality enhances rule-maker replication and $E$ is the environmental variable defined below}. Thus,
 
 \begin{equation}
 \pi_M = s - c + pE, \qquad \pi_R = 1,
 \label{eq:piM}
 \end{equation}
 
-where the rule‑taker’s fitness is normalized to unity.
+where the rule‑taker’s fitness is normalized to unity. \rev{Because the replicator equation (Eq.~\ref{eq:doty} below) depends only on the fitness difference $\pi_M - \pi_R$, any environmental benefit shared equally by both types cancels and does not affect the dynamics. The term $pE$ in $\pi_M$ therefore represents the \emph{differential} advantage that rule-makers derive from the environmental state; for example, because the modifier they produce is specifically complementary to their own catalytic requirements. The normalisation $\pi_R = 1$ is a standard convention in replicator dynamics that sets the scale of absolute fitness without loss of generality.}
 
-Under the replicator equation, the frequency of rule-makers changes according to
+Under the replicator equation \rev{\citep{HofbauerSigmund1998,HofbauerSigmund2003}}, the frequency of rule-makers changes according to
 
 \begin{equation}
 \dot y = y(\pi_M - \bar\pi),
@@ -34,7 +34,7 @@ Substituting Eqs.~(\ref{eq:piM}) and ~(\ref{eq:barpi}) into Eq.~(\ref{eq:doty}) 
 \label{eq:ydot}
 \end{equation}
 
-a cubic vector field in $y$ whose coupling to the environmental dynamics in $E$ determines the qualitative behaviour of the system.
+\rev{a quadratic equation in $y$ for fixed $E$, whose coupling to the environmental dynamics (Eq.~\ref{eq:Edot} below) produces an effectively cubic dependence on $y$ along the environmental nullcline and determines the qualitative behaviour of the system.}
 
 Environmental conditions evolve according to
 

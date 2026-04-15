@@ -1,0 +1,178 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{natbib}
+\usepackage{doi}
+\usepackage{enumitem}
+\usepackage{changepage}
+
+\newcommand{\rev}[1]{\textcolor{red}{#1}}
+\newcommand{\ans}[1]{\textcolor{blue}{#1}}
+\newcommand{\RC}[1]{\medskip\noindent #1\par}
+\newenvironment{response}{\medskip\begin{adjustwidth}{1.5em}{}\color{blue}\mdseries\sloppy}{\end{adjustwidth}\color{black}}
+\usepackage{mdframed}
+\newenvironment{manuscript}{%
+  \begin{adjustwidth}{1.5em}{}%
+  \begin{mdframed}[
+    topline=false, bottomline=false, rightline=false,
+    linewidth=2pt, linecolor=red,
+    innerleftmargin=1em, innerrightmargin=0pt,
+    innertopmargin=0.4em, innerbottommargin=0.4em,
+    skipabove=\medskipamount, skipbelow=\medskipamount
+  ]\color{black}%
+}{%
+  \end{mdframed}%
+  \end{adjustwidth}%
+}
+
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+\title{Response to Reviewers\\[6pt]
+\large ``From Rule-Taking to Rule-Making Chemistry:\\
+A Minimal Population-Environment Feedback Model''}
+\author{Celia Blanco}
+\date{}
+
+\begin{document}
+\maketitle
+
+\ans{We thank both reviewers for their careful reading and constructive feedback, which has improved the manuscript. Below we address each point and indicate all changes in the revised manuscript in} \rev{red}.
+
+\section*{Reviewer 1}
+
+\RC{In this manuscript, the author proposes a simple model to study an aspect replication that has been less studied, namely the feedback between the chemical population and its environment. More precisely, the author studies how some chemical species can modify its environment in such a way as to favor its own replication. The model is based on the replicator equation with two replicating species: one that modifies its environment (the ``rule-maker'' species), and one that is passive (the ``rule-taker''). The author studies the system both analytically and numerically, and shows that depending on the parameters of the model and initial conditions, there exists either a bistable regime (where either rule-makers or rule-takers dominate) and a regime where only rule-takers dominate. The author also shows a more ``concrete'' chemical realization of this model using mass-action kinetics.\par
+This paper is interesting for origin-of-life researchers as it studies the essential ingredients behind replicator persistence through environmental modifications. The paper is clear (although see minor points below), and the essential ingredients of the model could be applied to other models as well, increasing its appeal for other researchers.\par
+In my opinion, the paper is sufficiently relevant and interesting for publication in the Journal of the Royal Society Interface. However, there are several points (outlined below) that deserve attention. Each of those points must be addressed in order to get my approval for publication.\par
+In the following, specific positions in the manuscript are indicated by (page number, line number).}
+
+\RC{In the second and third paragraph of the introduction, the author discusses the literature on how chemistry affects its environment. Since it is such an important notion, I am a bit surprised that the literature on this topic is so scarce. After a quick search, I found that the group of Sijbren Otto has an experimental system where replicators can affect their environment (https://www.nature.com/articles/s41557-023-01301-2). Please check the literature for other relevant papers, and incorporate them as appropriate.}
+
+\begin{response}
+We have expanded the literature discussion in both the Introduction (paragraph~2) and the Discussion. In addition to the Otto group's experimental work on synthetic replicator ecosystems \citep{Liu2024Otto}, we now cite game-theoretic models with environmental feedbacks \citep{Tilman2020}, the metabolically coupled replicator systems framework \citep{Czaran2015MCRS,Adamski2020}, and a systematic survey of autocatalytic cycles showing that environment-modifying autocatalysis is chemically widespread \citep{Peng2023Autocatalysis}.
+\end{response}
+
+\RC{(3,37) Clarify the meaning of ``frequency'' for rule-makers and rule-takers (frequency of what).}
+
+\begin{response}
+We have clarified that ``frequency'' refers to the proportion of each type within the total population, which is standard terminology in evolutionary dynamics. The revised text now reads:
+\end{response}
+
+\begin{manuscript}Let $y$ denote the frequency \rev{(proportion)} of rule-makers \rev{in the population}\ldots
+\end{manuscript}
+
+\RC{(3,38) Why use a chemostat? Is there an origin-of-life rational behind this choice? Please clarify.}
+
+\begin{response}
+The chemostat assumption maintains a constant total population so that selection acts on relative abundances. This is a common assumption in origin-of-life modelling. For example, the quasispecies framework introduces a dilution flux that removes material in proportion to the amount produced, explicitly motivated by a stirred flow reactor setup \citep{EigenMcCaskillSchuster1989}. The same constant-population constraint can be found in the hypercycle \citep{Eigen1977}, prevolutionary dynamics \citep{Nowak2008Prelife}, and metabolically coupled replicator systems \citep{Czaran2015MCRS}. We have added a sentence in the Model section noting that such open-system conditions are natural idealisations of prebiotic environments with continuous material throughput:
+\end{response}
+
+\begin{manuscript}Let $y$ denote the frequency \rev{(proportion)} of rule-makers \rev{in the population} and $1-y$ the frequency of rule-takers, implicitly assuming that the total population is regulated on a faster timescale than changes in composition, as in chemostat-like or dilution-balanced settings. \rev{Such open-system conditions are natural idealisations of prebiotic environments with continuous material throughput (e.g.\ hydrothermal vents, flow-through porous media, tidal pools with periodic replenishment).}
+\end{manuscript}
+
+\RC{(3,42) In this sentence, it is specified that the variable $E$ benefits both rule-makers and rule-takers (with only the rule-makers paying a cost). But in Eq.~(1), we see that the fitness of the rule-makers changes with $E$ (i.e.\ it benefits from $E$), but the fitness of rule-takers is normalized to 1 (does not seem to benefit from $E$). I know that $s$ is the baseline fitness of the rule-makers relative to rule-takers, but this has nothing to do with $E$: somehow I would expect the rule-takers fitness to also depend on $E$. Please explain what I am missing here.}
+
+\begin{response}
+In the replicator equation framework, only \emph{relative} fitness differences drive changes in composition. Any environmental benefit shared equally by both types cancels in the fitness difference $\pi_M - \pi_R$ that governs the dynamics. The term $pE$ in $\pi_M$ therefore captures the \emph{differential} advantage that rule-makers derive from environmental quality. The normalisation $\pi_R = 1$ sets the fitness scale without loss of generality. We have added a clarifying paragraph after Eq.~(1):
+\end{response}
+
+\begin{manuscript}\rev{Because the replicator equation (Eq.~2 below) depends only on the fitness difference $\pi_M - \pi_R$, any environmental benefit shared equally by both types cancels and does not affect the dynamics. The term $pE$ in $\pi_M$ therefore represents the \emph{differential} advantage that rule-makers derive from the environmental state; for example, because the modifier they produce is specifically complementary to their own catalytic requirements. The normalisation $\pi_R = 1$ is a standard convention in replicator dynamics that sets the scale of absolute fitness without loss of generality.}
+\end{manuscript}
+
+\RC{(3,50) In the sentence ``and a feedback benefit $pE$ that increases with environmental quality'', it is not clear if $pE$ is a single variable, or it is $p$ multiplied by the value of $E$. It is only later in the manuscript that I realized that $p$ has a meaning. Please include the meaning of $p$ here.}
+
+\begin{response}
+We have introduced $p$ explicitly at its first occurrence. The revised text now reads:
+\end{response}
+
+\begin{manuscript}\ldots and a feedback benefit $pE$ that increases with environmental quality\rev{, where $p > 0$ is a sensitivity parameter quantifying how strongly environmental quality enhances rule-maker replication and $E$ is the environmental variable defined below}.
+\end{manuscript}
+
+\RC{Please put a reference to the replicator equation around Eq.~(2), for readers unfamiliar with it.}
+
+\begin{response}
+We have added a reference to Hofbauer and Sigmund (1998) at the first mention of the replicator equation, before Eq.~(2).
+\end{response}
+
+\RC{Just below Eq.~(4), the sentence that starts with ``a cubic vector field'' is a bit confusing, as Eq.~(4) seems to be quadratic in the dynamical variable $y$. It is only in conjunction with Eq.~(5) that the whole system is potentially cubic. Please re-formulate.}
+
+\begin{response}
+We agree the wording was confusing. We have reformulated the sentence to:
+\end{response}
+
+\begin{manuscript}\rev{a quadratic equation in $y$ for fixed $E$, whose coupling to the environmental dynamics (Eq.~(5) below) produces an effectively cubic dependence on $y$ along the environmental nullcline and determines the qualitative behaviour of the system.}
+\end{manuscript}
+
+\RC{(8,12) I am wondering if the conclusion of this section is trivial. If the environment variable $E$ is considered to be quasistatic (near its nullcline, not varying), then I would certainly expect that the only remaining variable that can affect the final behavior of the population is the initial population of rule-makers itself. Unless there is something I don't understand. Please clarify.}
+
+\begin{response}
+We agree that, taken in isolation, the quasi-steady result is expected. However, the section serves as a \emph{baseline} that reveals what the dynamic-environment regime adds. In the full 2D system, the environmental variable carries memory of past population states, so that both $y_0$ and $E_0$ jointly determine outcomes. This history-dependence is absent in the quasi-steady limit, and the comparison between the two regimes demonstrates that environmental persistence generates qualitatively new behaviour. We have added a clarifying paragraph:
+\end{response}
+
+\begin{manuscript}\rev{The purpose of this reduction is not to derive a surprising result in isolation, but to establish a baseline against which the dynamic-environment regime can be compared. In the full two-dimensional system (Section~3.1), the environmental variable retains memory of past population states, so that both the initial composition $y_0$ and the initial environmental quality $E_0$ jointly determine outcomes. This history-dependence---absent in the quasi-steady limit---is the qualitatively new feature introduced by environmental persistence, and it is what allows pre-existing environmental conditions to enlarge the basin of attraction for rule-making chemistry (cf.\ Fig.~4).}
+\end{manuscript}
+
+\RC{It looks like the chemical reaction in Eq.~(10) violates something, like it creates $B$ out of nothing. What kind of chemical process gives rise to this reaction in practice? Do you have any example in mind? Please elaborate.}
+
+\begin{response}
+We agree that the original notation was misleading. We have corrected Eq.~(10) to explicitly include the substrate $S$ and added concrete examples of chemical processes that this reaction represents:
+\end{response}
+
+\begin{manuscript}
+\rev{$M + S$} $\xrightarrow{\alpha}$ \rev{$M +$} $B$
+\end{manuscript}
+
+\begin{manuscript}
+Eq.~(10) captures the costly production of the environmental modifier by $M$ \rev{from the common substrate $S$ (e.g.\ catalytic cofactors, metal-chelating ligands, or buffering compounds)}.
+\end{manuscript}
+
+\clearpage
+\section*{Reviewer 2}
+
+\RC{As someone who was worked in the field of Origin of Life (OoL), in particular the development of ever more complex chemicals with wider functional repertoire I immediately recognized this paper as being pivotal in the development of OoL theory. Just the mention of ``we identify the conditions under which environment-modifying activity, once present, can become self-sustaining in mixed chemical populations'' in the Abstract caught my attention immediately.
+
+Before I make any specific comments about the paper I want to ask the author the following question. Obviously, any discussion of functional repertoire requires some deep searching into molecular complexity. This is something missing completely in this paper which is otherwise excellent (more below). To understand and use the algorithms concerning molecular complexity I would recommend tht author to consult the following papers and cite the ones that she finds useful. And at least comment on them.
+
+\vspace{-0.5\parskip}
+\begin{itemize}[nosep,topsep=0pt,partopsep=0pt]
+\item https://doi.org/10.1089/ast.2005.5.568
+\item https://doi.org/10.1016/j.jtbi.2009.08.001
+\item doi.org/10.1007/s00114-012-0892-6
+\item doi.org/10.1371/journal.pone.0204883
+\end{itemize}
+\vspace{-0.5\parskip}
+
+Now for Dr.\ Blanco's excellent paper (by which I am obviously recommending acceptance):
+
+The description of the model is clearly stated and later we get to understand more about the ``sharp threshold''. I can certainly accept to notion that there is, or rather, would have to have been, a sharp threshold between relatively passive (albeit still ``developing'' or ``emerging'') chemicals and those which actively and memorably effect advantageous changes in their environment. To that degree I congratulate Dr.\ Blanco. There are however two very important (from the point of view of chemistry) items that are missing. 1) The use of chemical complexity calculations (as in the references above) or at least a recognition that they are important (and I would like to know, at what level of molecular complexity the sharp threshold makes its entry) and 2) The notion of mechanism in chemical reactions in the sense of the classical work of Ingold et al who pioneered this field of discovery.}
+
+\begin{response}
+We are grateful for the reviewer's generous assessment and for highlighting the importance of molecular complexity. This is a topic of great interest to us---indeed, in recent work we have shown that molecular complexity measures can yield concrete insights into prebiotic transitions, specifically by constraining the order in which amino acids were recruited into the genetic code \citep{Hashmi2026Complexity}. We fully agree that connecting complexity-theoretic measures to the feedback parameters of our model is a compelling direction, and one we intend to pursue. While this connection lies beyond the scope of the present paper, which focuses on the dynamical consequences of population-environment feedback at a coarse-grained level, we have added a new paragraph in the Discussion citing all four recommended references and explicitly posing the question of at what level of molecular complexity the sharp threshold emerges. We address each of the two specific points below.
+\end{response}
+
+\noindent\textbf{Point 1: Molecular complexity.}
+
+\begin{response}
+Our model is deliberately agnostic about molecular architecture, as the parameters $s$, $c$, $p$, and $\alpha$ encode functional capabilities without specifying the molecular complexity required to achieve them. The sharp threshold is defined in terms of these functional parameters ($p_{\text{eff}} > p_c$), not molecular complexity per se. In the new Discussion paragraph we explicitly pose the reviewer's question: what minimum molecular complexity is required for a replicator to cross the feedback threshold?
+\end{response}
+
+\begin{manuscript}\rev{An important complementary perspective concerns the molecular complexity of the chemical species involved. Measures of molecular complexity \citep{Papentin1982Complexity,Bottcher2018Complexity,Bywater2012Dating,Bywater2018AminoAcids}, functional information frameworks \citep{Hazen2007Functional,Walker2013Algorithmic}, and prebiotic scenario models that foreground the role of chemical complexity \citep{Bywater2005Beach,Bywater2009Membrane} offer quantitative tools for characterising the threshold between passive and environment-modifying chemistry. \ldots\ Connecting complexity-theoretic measures to the feedback parameters identified here---for instance, asking what minimum molecular complexity is required for a replicator to achieve a given modifier-production rate $\alpha$ or feedback sensitivity $p$---is an important direction for future work that could help locate the sharp threshold identified here within a broader landscape of chemical complexity. Indeed, molecular complexity has already been used to date stages of prebiotic chemical evolution \citep{Bywater2012Dating} and to show that complexity constrained the early recruitment of amino acids into the genetic code \citep{Bywater2018AminoAcids,Hashmi2026Complexity}. Extending this approach to environment-modifying chemistry is a natural next step.}
+\end{manuscript}
+
+\noindent\textbf{Point 2: Reaction mechanisms.}
+
+\begin{response}
+We agree that connecting the abstract rate parameters to mechanistic considerations is valuable. We have added a remark in the Discussion:
+\end{response}
+
+\begin{manuscript}\rev{From a mechanistic perspective, the abstract parameters of the model---particularly the feedback sensitivity $p$, the modifier production rate $\alpha$, and the cost $c$---are ultimately determined by the underlying chemical reaction mechanisms. Classical mechanistic analysis, as pioneered by Ingold and others \citep{Ingold1953}, provides a framework for relating macroscopic rate parameters to elementary bond-making and bond-breaking steps. Connecting the coarse-grained parameters of the present model to detailed mechanistic descriptions of specific prebiotic reactions is an important direction for grounding the feedback threshold in concrete chemistry.}
+\end{manuscript}
+
+
+\clearpage
+\bibliographystyle{plainnat}
+\bibliography{../paper/references}
+
+\end{document}

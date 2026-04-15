@@ -4,7 +4,7 @@ The deterministic mass–action equations for the three variables are
 \begin{align}
 \frac{dR}{dt} &= (k_R S_0 - \mu_R) R, \label{eq:Rdot_app} \\
 \frac{dM}{dt} &= (k_M S_0 - \mu_M + k_{\mathrm{fb}} S_0 B)\, M, \label{eq:Mdot_app} \\
-\frac{dB}{dt} &= \alpha M - \beta B. \label{eq:Bdot_app}
+\frac{dB}{dt} &= \rev{\alpha S_0} M - \beta B. \label{eq:Bdot_app}
 \end{align}
 The coefficients in front of $R$ and $M$ define the per-capita growth rates
 \[
@@ -38,6 +38,6 @@ which matches the functional form of Eq.~\eqref{eq:ydot} once we identify the en
 
 The environmental dynamics follow directly from \eqref{eq:Bdot_app}. Under chemostat-like conditions the total abundance $N$ remains approximately constant, allowing $M = yN$ and therefore
 \[
-\dot E = \alpha yN - \beta E = \tilde{\alpha}\,y - \beta E,
+\dot E = \rev{\alpha S_0}\, yN - \beta E = \tilde{\alpha}\,y - \beta E,
 \]
-where $\tilde{\alpha} = \alpha N$ is absorbed into the effective production rate. This reproduces the environmental equation used in the main text.
+where $\tilde{\alpha} = \rev{\alpha S_0} N$ is absorbed into the effective production rate. This reproduces the environmental equation used in the main text.

@@ -93,6 +93,8 @@ separates trajectories that decay from those that grow toward the rule-making st
 Unlike in the dynamic-environment regime analyzed above, environmental history plays no
 role in this limit; only the initial population composition determines the outcome.
 
+\rev{The purpose of this reduction is not to derive a surprising result in isolation, but to establish a baseline against which the dynamic-environment regime can be compared. In the full two-dimensional system (Section~3.1), the environmental variable retains memory of past population states, so that both the initial composition $y_0$ and the initial environmental quality $E_0$ jointly determine outcomes. This history-dependence---absent in the quasi-steady limit---is the qualitatively new feature introduced by environmental persistence, and it is what allows pre-existing environmental conditions to enlarge the basin of attraction for rule-making chemistry (cf.\ Fig.~\ref{fig:extended-fan}).}
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=1.0\textwidth]{figures/timeseries_fan.png}
@@ -125,20 +127,20 @@ conditions. The reaction network is defined by the following elementary processe
 R + S &\xrightarrow{k_R} 2R, \label{eq:Rrep} \\
 M + S &\xrightarrow{k_M} 2M, \label{eq:Mrep} \\
 M + S + B &\xrightarrow{k_{\mathrm{fb}}} 2M + B, \label{eq:MrepB} \\
-M &\xrightarrow{\alpha} M + B, \label{eq:Bprod} \\
+\rev{M + S} &\xrightarrow{\alpha} \rev{M +} B, \label{eq:Bprod} \\
 R &\xrightarrow{\mu_R} \varnothing, \label{eq:Rdecay} \\
 M &\xrightarrow{\mu_M} \varnothing, \label{eq:Mdecay} \\
 B &\xrightarrow{\beta} \varnothing. \label{eq:Bdecay}
 \end{align}
 
-Here, Eqs.~(\ref{eq:Rrep}) and (\ref{eq:Mrep}) describe baseline replication of $R$ and $M$ from a common substrate $S$. Eq.~(\ref{eq:MrepB}) represents enhanced, feedback-mediated replication of $M$ in the presence of the modifier $B$, which acts catalytically and is regenerated in the process. Eq.~(\ref{eq:Bprod}) captures the costly production of the environmental modifier by $M$. Eqs.~(\ref{eq:Rdecay})-(\ref{eq:Bdecay}) describe first-order loss of each species due to degradation, dilution, or outflow.
+Here, Eqs.~(\ref{eq:Rrep}) and (\ref{eq:Mrep}) describe baseline replication of $R$ and $M$ from a common substrate $S$. Eq.~(\ref{eq:MrepB}) represents enhanced, feedback-mediated replication of $M$ in the presence of the modifier $B$, which acts catalytically and is regenerated in the process. Eq.~(\ref{eq:Bprod}) captures the costly production of the environmental modifier by $M$ \rev{from the common substrate $S$ (e.g.\ catalytic cofactors, metal-chelating ligands, or buffering compounds)}. Eqs.~(\ref{eq:Rdecay})-(\ref{eq:Bdecay}) describe first-order loss of each species due to degradation, dilution, or outflow.
 
 We assume that the substrate $S$ is maintained at an approximately constant concentration $S_0$ by external supply, as in a chemostat or continuously driven prebiotic reactor. Under this assumption, the mass-action dynamics for the concentrations $R(t)$, $M(t)$ and $B(t)$ take the form
 
 \begin{align}
 \frac{dR}{dt} &= \left(k_R S_0 - \mu_R\right) R, \label{eq:Rdot} \\
 \frac{dM}{dt} &= \left(k_M S_0 - \mu_M + k_{\mathrm{fb}} S_0 B\right) M, \label{eq:Mdot} \\
-\frac{dB}{dt} &= \alpha M - \beta B. \label{eq:Bdot}
+\frac{dB}{dt} &= \alpha \rev{S_0} M - \beta B. \label{eq:Bdot}
 \end{align}
 
 This assumption implies regulation of total replicator abundance on a faster timescale than changes
