@@ -20,7 +20,7 @@ If you use or adapt this code, please cite the associated manuscript:
 
 > Blanco, C. (2025). *From Rule-Taking to Rule-Making Chemistry: A Minimal Population–Environment Feedback Model*.
 
-(Preprint / journal reference to be added.)
+(_Pending publication_)
 
 ---
 
